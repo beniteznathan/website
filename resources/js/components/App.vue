@@ -1,9 +1,11 @@
 <template>
-    <router-view></router-view>
+  <div class="radial"></div>
+
+  <router-view></router-view>
 </template>
 
 <script>
 export default {
-    name: 'app'
+  name: 'app',
 }
 </script>

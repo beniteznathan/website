@@ -48,12 +48,12 @@ function beforeEnter(route) {
 }
 
 function resolveMiddleware() {
-  const modules = import.meta.glob('./middleware/*.js');
+  const modules = import.meta.glob('./middleware/*.js', { eager: true });
 
   return Object.keys(modules)
     .map(file => [file.replace(/(middleware\/)|(^.\/)|(\.js$)/g, ''), modules[file]])
     .reduce((guards, [name, guard]) => (
-      { ...guards, [name]: guard }
+      { ...guards, [name]: guard.default }
     ), {});
 }
 

@@ -4,6 +4,13 @@ export default [
         name: 'home',
         component: () => import('@views/Home.vue')
     },
+	...middleware('guests', [
+		{
+			path: '/login',
+			name: 'login',
+			component: () => import('@views/Home.vue')
+		},
+	]),
 	{
 		path: '/:pathMatch(.*)*',
 		name:'404',
