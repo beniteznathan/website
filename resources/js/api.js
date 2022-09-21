@@ -2,8 +2,6 @@
 import axios from 'axios';
 import endpoints from './route/endpoints';
 
-const API_URL = import.meta.env.BASE_URL;
-
 class Api {
   /**
    * Using axios to perform ajax
@@ -42,7 +40,7 @@ class Api {
    * @return {string}
    */
   static buildEndpoint(endpoint, params = null) {
-    endpoint = API_URL + 'api/' + endpoints[endpoint] || endpoint;
+    endpoint = '/api/' + endpoints[endpoint] || endpoint;
 
     if (params) {
       for (const key of Object.keys(params)) {
